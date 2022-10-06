@@ -101,7 +101,9 @@ public class CameraPreview extends Plugin implements CameraActivity.CameraPrevie
         // Image Dimensions - Optional
         Integer width = call.getInt("width", 0);
         Integer height = call.getInt("height", 0);
-        fragment.takePicture(width, height, quality);
+        // disable or enable shutter sound on takePicture (only android)
+        Boolean captureSound = call.getBoolean("captureSound", false)
+        fragment.takePicture(width, height, quality, captureSound);
     }
 
     @PluginMethod

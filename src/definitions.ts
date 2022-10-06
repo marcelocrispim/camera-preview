@@ -44,6 +44,8 @@ export interface CameraPreviewPictureOptions {
    *
    * If left undefined, the `web` implementation will export a PNG, otherwise a JPEG will be generated */
   quality?: number;
+  /** The shutter Sound default disable only Android */
+  captureSound?:boolean;
 }
 
 export interface CameraSampleOptions {

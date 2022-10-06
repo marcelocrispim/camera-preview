@@ -742,7 +742,7 @@ public class CameraActivity extends Fragment {
         );
     }
 
-    public void takePicture(final int width, final int height, final int quality) {
+    public void takePicture(final int width, final int height, final int quality, final boolean captureSound) {
         Log.d(TAG, "CameraPreview takePicture width: " + width + ", height: " + height + ", quality: " + quality);
 
         if (mPreview != null) {
@@ -801,6 +801,8 @@ public class CameraActivity extends Fragment {
                     }
 
                     mCamera.setParameters(params);
+                    // disable or enable ShutterSound
+                    mCamera.enableShutterSound(captureSound)
                     mCamera.takePicture(shutterCallback, null, jpegPictureCallback);
                 }
             }
